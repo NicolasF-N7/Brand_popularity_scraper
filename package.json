@@ -1,0 +1,26 @@
+{
+  "name": "brand_popularity_scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicolasF-N7/Brand_popularity_scraper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NicolasF-N7/Brand_popularity_scraper/issues"
+  },
+  "homepage": "https://github.com/NicolasF-N7/Brand_popularity_scraper#readme",
+  "dependencies": {
+    "puppeteer": "^14.1.1",
+    "puppeteer-extra": "^3.2.3",
+    "puppeteer-extra-plugin-adblocker": "^2.12.0",
+    "puppeteer-extra-plugin-stealth": "^2.9.0"
+  }
+}

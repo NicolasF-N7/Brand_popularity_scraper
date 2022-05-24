@@ -1,0 +1,23 @@
+{
+  "outputDataSheet": "/home/nico/Documents/prog/web/ISLA/brand_popularity_scraper/Brand_popularity.csv",
+  "cookiesFilePath": "/home/nico/Documents/prog/web/ISLA/brand_popularity_scraper/vinted+vc_cookies.json",
+  "brands_to_process": ["Fusalp", "Balmain", "Valentino", "Salvatore Ferragamo"],
+  "marketplaces_to_visit": [
+    {
+      "name": "VC", "baseURL": "https://www.vestiairecollective.com/", "searchString": "search/?q=",
+      "cookiesFile": "/home/nico/Documents/prog/web/ISLA/brand_popularity_scraper/vc_cookies.json",
+      "selectors": ["#main-content > catalog-page > vc-catalog > div > div > ais-instantsearch > div > div.catalog__columnFilters > div.catalog__colmunFiltersInner > vc-catalog-filters > nav > div:nth-child(2) > vc-catalog-widget-checkbox-list > fieldset > div.ais-RefinementList-body.ais-body > ul > li:nth-child(3) > label > span",
+        "#main-content > catalog-page > vc-catalog > div > div > ais-instantsearch > div > div.catalog__columnFilters > div.catalog__colmunFiltersInner > vc-catalog-filters > nav > div:nth-child(2) > vc-catalog-widget-checkbox-list > fieldset > div.ais-RefinementList-body.ais-body > ul > li:nth-child(4) > label > span"]
+    },
+    {
+      "name": "Depop", "baseURL": "https://www.depop.com/", "searchString": "search/?q=",
+      "cookiesFile": "/home/nico/Documents/prog/web/ISLA/brand_popularity_scraper/depop_cookies.json",
+      "selectors": ["#main > div.Container-sc-__sc-1t5af73-0.Searchstyles__StyledContainer-sc-__sc-1ep2n60-0.iBSLBV.gbFjzF > h1 > b"]
+    },
+    {
+      "name": "HardlyEverWornIt", "baseURL": "https://hardlyeverwornit.com/", "searchString": "search?prod_prod_products%5Bquery%5D=v",
+      "cookiesFile": "/home/nico/Documents/prog/web/ISLA/brand_popularity_scraper/hardlyEverWornIt_cookies.json",
+      "selectors": ["#js-search__stats-desktop > div > span"]
+    }
+  ]
+}
