@@ -35,11 +35,11 @@ puppeteer.launch({ headless: false }).then(async browser => {
   https://www.depop.com
   https://hardlyeverwornit.com/
   https://www.etsy.com/
-  https://www.grailed.com/
+  NOPE https://www.grailed.com/
   https://www.videdressing.com/
   https://theluxurycloset.com/
   https://thevintagebar.com/
-  https://www.myprivateboutique.ch/
+  NOPE https://www.myprivateboutique.ch/
   */
 
   let newDataLine = '';
@@ -55,17 +55,38 @@ puppeteer.launch({ headless: false }).then(async browser => {
     	const deserializedCookies = JSON.parse(cookies);
     	await page.setCookie(...deserializedCookies);
 
-      let searchURL = marketpl.baseURL + marketpl.searchString + encodeURI(brandName);
-      await page.goto(searchURL);
+      let searchURL = marketpl.baseURL + marketpl.searchPrefix + encodeURI(brandName) + marketpl.searchPostfix;
 
-      let totalVisib = 0;
+      //===Connectivity trial===
+  		let connectionSuccess = false;
+  		let nbTrials = 0;
+  		while(nbTrials < config.connectionMaxTrial && !connectionSuccess){
+  			try{
+  				//await page.goto(searchURL, {waitUntil : 'domcontentloaded'});
+          await page.goto(searchURL);
+  				connectionSuccess = true;
+  			}catch(err){
+  				console.log("NO INTERNET. Trying again in 15 sec");
+  				await page.waitForTimeout(15000);
+  			}
+  			nbTrials++;
+  		}
+  		if(nbTrials > 1){console.log("Internet is baaack!");}
+
       //Scan SELECTORS
+      let totalVisib = 0;
       for(selector of marketpl.selectors){
-        let selectorTextContent = await page.$eval(selector, el => el.textContent);
-        //Filter non numeric character
-        let cleanedNumberContent = selectorTextContent.replace(/[^\d.-]/g, '');
-        console.log(cleanedNumberContent);
-        totalVisib += parseInt(cleanedNumberContent);
+        try{
+          await page.waitForSelector(selector);
+          let selectorTextContent = await page.$eval(selector, el => el.textContent);
+          //Filter non numeric character
+          let cleanedNumberContent = selectorTextContent.replace(/[^\d.-]/g, '');
+          totalVisib += parseInt(cleanedNumberContent);
+        }catch(err){
+          console.log("Element not found: " + selector);
+          //await page.waitForTimeout(15000000);
+        }
+
       }
       console.log(marketpl.name + " totalVisib: " + totalVisib);
       newDataLine += totalVisib + ',';
@@ -80,7 +101,7 @@ puppeteer.launch({ headless: false }).then(async browser => {
 	  if (err)
 	    console.log(err);
 	  else {
-	    console.log("Data written to file!\n");
+	    console.log("\nData written to file!\n");
 	  }
 	});
   browser.close();
