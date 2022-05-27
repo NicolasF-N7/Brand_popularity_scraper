@@ -42,6 +42,11 @@ puppeteer.launch({ headless: false }).then(async browser => {
   NOPE https://www.myprivateboutique.ch/
   */
 
+  /* Brands already assessed
+  "Fusalp", "Balmain", "Valentino", "Salvatore Ferragamo", "Tod's", "Jimmy Choo", "Christian Louboutin", "Fendi", "Saint Laurent", "Bulgari", "Dolce and Gabbana", "Rolex", "Cartier", "Prada", "Burberry", "Dior", "Hermes", "Gucci", "Louis Vuitton", "Chanel"
+
+  */
+
   let newDataLine = '';
   //For each BRAND
   for(let brandName of config.brands_to_process){

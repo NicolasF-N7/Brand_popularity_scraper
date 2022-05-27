@@ -1,7 +1,7 @@
 {
   "outputDataSheet": "/home/nico/Documents/prog/web/ISLA/brand_popularity_scraper/Brand_popularity.csv",
   "cookiesFilePath": "/home/nico/Documents/prog/web/ISLA/brand_popularity_scraper/vinted+vc_cookies.json",
-  "brands_to_process": ["Fusalp", "Balmain", "Valentino", "Salvatore Ferragamo", "Tod's", "Jimmy Choo", "Christian Louboutin", "Fendi", "Saint Laurent", "Bulgari", "Dolce and Gabbana", "Rolex", "Cartier", "Prada", "Burberry", "Dior", "Hermes", "Gucci", "Louis Vuitton", "Chanel"],
+  "brands_to_process": ["Petit Bateau", "Levi's", "Ralph Lauren", "Lacoste"],
   "marketplaces_to_visit": [
     {
       "name": "VC", "baseURL": "https://www.vestiairecollective.com/", "searchPrefix": "search/?q=",  "searchPostfix": "",
